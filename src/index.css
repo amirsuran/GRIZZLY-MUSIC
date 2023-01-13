@@ -1,5 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  background-color: rgb(34, 32, 32);
+  background-color: rgb(0, 0, 0);
 }
 .navbar {
   font-size: 22px;
@@ -8,7 +12,7 @@ body {
 .navbar-text-div {
   margin-top: 10px;
   display: flex;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   justify-content: space-between;
   padding: 10px 15px;
   font-family: "Inter";
@@ -19,7 +23,11 @@ body {
   font-family: "Inter";
   color: white;
   text-decoration: none;
+  margin-left: 20px;
+  font-size: 20px;
 }
+
+
 
 .navbar-text-right{
   font-family: "Inter";
