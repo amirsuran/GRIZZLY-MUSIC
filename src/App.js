@@ -1,10 +1,14 @@
 import "./App.css";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import List from "./components/List";
-import { playlist2 } from "./components/list2";
-import { playlist } from "./components/data";
+import { playlist2 } from "./components/SecendData";
+import { playlist } from "./components/Data";
+import Button from "./components/Multi-action-button";
+import { Login } from "./LoginPage/Login";
+import { Register } from "./LoginPage/Register";
 
 function App() {
+  const [open, setopen] = useState(false);
   return (
     <Fragment>
       <div className="navbar-text-div">
@@ -13,13 +17,30 @@ function App() {
             GayGrizzly
           </a>
         </div>
-        <div className="navbar-text-right font-[Inter] space-x-5 mr-8 ">
-          <a
-            className="navbar-text-right"
-            href="https://www.radiojavan.com/mp3s"
-          >
-            Music
-          </a>
+        <div className="navbar-text-right font-[Inter] text-white space-x-3 text-base	 ">
+          <div className=" relative inline-block  ">
+            <a className="navbar-text-right mr-3" href="./Login/Login.js">
+              Login Amir
+            </a>
+            <Button
+              onClick={() => {
+                setopen(!open);
+              }}
+              class="multi-action-button"
+              className=" text-white"
+            >
+              Music
+            </Button>
+
+            {open && (
+              <div className=" bg-gray-500 mt-1 absolute top-11 w-100 h-100 text-center font-[Inter] shadow-2xl rounded-lg p-2 ">
+                <Button>Rap</Button>
+                <Button>Jazz</Button>
+                <Button>Pop</Button>
+              </div>
+            )}
+          </div>
+
           <a className="navbar-text-right" href="/....">
             Podcasts
           </a>
@@ -51,8 +72,8 @@ function App() {
           <figcaption className="text-in-img">Maziar Falahi</figcaption>
         </figure>
       </div>
-      <List data={playlist2} title="this is title" />
-      <List data={playlist} title="awmkd;awmd" />
+      <List data={playlist2} title="PlayList" />
+      <List data={playlist} title="PlayList" />
     </Fragment>
   );
 }

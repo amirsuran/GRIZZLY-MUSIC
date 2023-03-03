@@ -19,7 +19,7 @@ body {
   border-radius: 8px;
 }
 
-.nav-links-home{
+.nav-links-home {
   font-family: "Inter";
   color: white;
   text-decoration: none;
@@ -27,31 +27,17 @@ body {
   font-size: 20px;
 }
 
-
-
-.navbar-text-right{
-  font-family: "Inter";
-  color: white;
-  text-decoration: none;
-}
-
-
 .navbarAll {
   display: flex;
 }
 
-
-
 /* code for top main navbar is down below */
-
-
 
 .top-main-nav {
   display: flex;
   width: 100%;
   gap: 10px;
 }
-
 
 .top-div-nav {
   display: flex;
@@ -66,7 +52,6 @@ body {
   margin-top: 10px;
 }
 
-
 .top-img-nav {
   max-width: 481px;
   height: 231px;
@@ -77,7 +62,6 @@ body {
   color: white;
   font-family: Inter;
 }
-
 
 .top-name-nav {
   color: white;
