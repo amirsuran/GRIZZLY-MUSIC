@@ -1,27 +1,33 @@
 import "./App.css";
 import { Fragment, useState } from "react";
-import List from "./components/List";
-import { playlist2 } from "./components/SecendData";
-import { playlist } from "./components/Data";
 import Button from "./components/Multi-action-button";
-import { Login } from "./LoginPage/Login";
-import { Register } from "./LoginPage/Register";
+import MainPage from "./components/home/main";
+import { Link, Route, Routes } from "react-router-dom";
+import LoginForm from "./components/login page/LoginForm";
+import RegisterForm from "./components/login page/RegisterForm";
 
 function App() {
   const [open, setopen] = useState(false);
+  const [showLoginForm, setShowLoginForm]= useState(true);
+  const toggleForm = () => {
+  setShowLoginForm(!showLoginForm);
+}
+
   return (
     <Fragment>
       <div className="navbar-text-div">
-        <div className="navbar-text-left">
-          <a className="nav-links-home" href="/index.html">
+        <div className="navbar-text-left font-[Inter]">
+          <Link className="nav-links-home" to="/">
             GayGrizzly
-          </a>
+          </Link>
+
         </div>
-        <div className="navbar-text-right font-[Inter] text-white space-x-3 text-base	 ">
+        <div className="navbar-text-right text-white space-x-3 font-[Inter] ">
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
           <div className=" relative inline-block  ">
-            <a className="navbar-text-right mr-3" href="./Login/Login.js">
-              Login Amir
-            </a>
+
+
             <Button
               onClick={() => {
                 setopen(!open);
@@ -51,30 +57,18 @@ function App() {
             Videos
           </a>
         </div>
-      </div>
-      <div className="top-main-nav">
-        <figure className="top-div-nav">
-          <img
-            src="https://assets.rjassets.com/static/content_items/images/2022/10/27/188892567abb7f6.jpg"
-            title="Erfan And Jidal"
-            alt=""
-            className="top-img-nav"
-          />
-          <figcaption className="text-in-img">Erfan & Jidal</figcaption>
-        </figure>
-        <figure className="top-div-nav">
-          <img
-            className="top-img-nav"
-            src="https://assets.rjassets.com/static/content_items/images/2022/10/28/8e97ad95ceb3e06.jpg"
-            title="Maziar Falahi"
-            alt=""
-          />
-          <figcaption className="text-in-img">Maziar Falahi</figcaption>
-        </figure>
-      </div>
-      <List data={playlist2} title="PlayList" />
-      <List data={playlist} title="PlayList" />
-    </Fragment>
+      </div>  
+              
+              <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/login" element={<LoginForm />} />
+              <Route path="/register" element={<RegisterForm />} />
+
+
+              </Routes>
+
+
+        </Fragment>
   );
 }
 
