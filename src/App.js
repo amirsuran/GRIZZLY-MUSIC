@@ -8,10 +8,10 @@ import RegisterForm from "./components/login page/RegisterForm";
 
 function App() {
   const [open, setopen] = useState(false);
-  const [showLoginForm, setShowLoginForm]= useState(true);
+  const [showLoginForm, setShowLoginForm] = useState(true);
   const toggleForm = () => {
-  setShowLoginForm(!showLoginForm);
-}
+    setShowLoginForm(!showLoginForm);
+  };
 
   return (
     <Fragment>
@@ -20,14 +20,11 @@ function App() {
           <Link className="nav-links-home" to="/">
             GayGrizzly
           </Link>
-
         </div>
         <div className="navbar-text-right text-white space-x-3 font-[Inter] ">
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
           <div className=" relative inline-block  ">
-
-
             <Button
               onClick={() => {
                 setopen(!open);
@@ -57,18 +54,14 @@ function App() {
             Videos
           </a>
         </div>
-      </div>  
-              
-              <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/register" element={<RegisterForm />} />
+      </div>
 
-
-              </Routes>
-
-
-        </Fragment>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+      </Routes>
+    </Fragment>
   );
 }
 
