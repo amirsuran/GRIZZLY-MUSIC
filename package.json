@@ -1,5 +1,5 @@
 {
-  "name": "music",
+  "name": "gay",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +13,8 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "use-sound": "^4.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.19"
   },
   "scripts": {
     "start": "react-scripts start",
