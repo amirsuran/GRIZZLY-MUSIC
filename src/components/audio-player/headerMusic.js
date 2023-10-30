@@ -18,7 +18,7 @@ export const musicList = [
         id: 1,
         artist: 'Majid razavi',
         music: majid,
-        title: 'Negine',
+        title: 'Negine Ghalbami ',
         imageCover: majidPic
     },
     {
@@ -26,6 +26,7 @@ export const musicList = [
         artist: 'Shervin',
         music: shervin,
         title: 'Hasood',
-        imageCover: shervinPic 
+        imageCover: shervinPic
     },
 ];
+

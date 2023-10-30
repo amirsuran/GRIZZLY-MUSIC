@@ -6,13 +6,11 @@ import { Link, Route, Routes } from "react-router-dom";
 import LoginForm from "./components/login page/LoginForm";
 import RegisterForm from "./components/login page/RegisterForm";
 import Podcast from "./components/audio-player/Podcast/podcast";
+import VideoPlayer from "./components/video-player/VideoPage";
+import MusicPage from "./components/audio-player/MusicPage";
 
 function App() {
-  const [open, setopen] = useState(false);
-  const [showLoginForm, setShowLoginForm] = useState(true);
-  const toggleForm = () => {
-    setShowLoginForm(!showLoginForm);
-  };
+  const [open, setOpen] = useState(false);
 
   return (
     <Fragment>
@@ -37,19 +35,20 @@ function App() {
         <div className="navbar-text-right mt-2 text-white space-x-3 font-[Inter] text-lg ">
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
-          <div className=" relative inline-block  ">
+          <Link to="/music">Music</Link>
+          <Link to="/videoplayer">Video</Link>
+          <div className="relative inline-block">
             <Button
               onClick={() => {
-                setopen(!open);
+                setOpen(!open);
               }}
-              class="multi-action-button"
-              className=" text-white"
+              className="multi-action-button text-white"
             >
-              Music
+              Playlist
             </Button>
 
             {open && (
-              <div className=" bg-gray-500 mt-1 absolute top-18 w-100 h-100 text-center font-[Inter] shadow-2xl rounded-lg p-2 ">
+              <div className="bg-gray-500 mt-1 absolute top-18 w-100 h-100 text-center font-[Inter] shadow-2xl rounded-lg p-2 ">
                 <Button>Rap</Button>
                 <Button>Jazz</Button>
                 <Button>Pop</Button>
@@ -59,20 +58,16 @@ function App() {
           <div className="inline-block">
             <Link to="/podcast">Podcasts</Link>
           </div>
-          <a className="navbar-text-right" href="/...">
-            Playlist
-          </a>
-          <a className="navbar-text-right" href="/...">
-            Videos
-          </a>
         </div>
       </div>
 
       <Routes>
+        <Route path="/videoplayer" element={<VideoPlayer />} />
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/podcast" element={<Podcast />} />
+        <Route path="/music" element={<MusicPage />} />
       </Routes>
     </Fragment>
   );

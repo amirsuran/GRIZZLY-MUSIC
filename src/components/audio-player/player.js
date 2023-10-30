@@ -6,53 +6,41 @@ import { IconContext } from "react-icons";
 
 export default function Player(props) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [time, setTime] = useState({
-    min: "",
-    sec: ""
-  });
-  const [currTime, setCurrTime] = useState({
-    min: "",
-    sec: ""
-  });
+  const [time, setTime] = useState("0:00");
+  const [seconds, setSeconds] = useState(0);
 
-  const [seconds, setSeconds] = useState();
+  const [play, { pause, duration, sound, error }] = useSound(props.music);
 
-  const [play, { pause, duration, sound, error}] = useSound(props.music);
-
-  
-useEffect(() => {
-  if (error) {
-    console.error("An error occurred while loading the audio:", error);
-  }
-}, [error]);
+  useEffect(() => {
+    if (error) {
+      console.error("An error occurred while loading the audio:", error);
+    }
+  }, [error]);
 
   useEffect(() => {
     if (duration) {
-      const sec = duration / 1000;
-      const min = Math.floor(sec / 60);
-      const secRemain = Math.floor(sec % 60);
-      setTime({
-        min: min,
-        sec: secRemain
-      });
+      const totalSeconds = Math.floor(duration / 1000);
+      setTime(formatTime(totalSeconds));
     }
-  }, [isPlaying]);
+  }, [duration]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (sound) {
-        setSeconds(sound.seek([]));
-        const min = Math.floor(sound.seek([]) / 60);
-        const sec = Math.floor(sound.seek([]) % 60);
-        setCurrTime({
-          min,
-          sec
-        });
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [sound]);
- 
+    if (sound && isPlaying) {
+      const interval = setInterval(() => {
+        const currentSeconds = Math.floor(sound.seek());
+        setSeconds(currentSeconds);
+        setTime(formatTime(currentSeconds));
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [sound, isPlaying]);
+
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  };
+
   const playingButton = () => {
     if (isPlaying) {
       pause();
@@ -65,31 +53,25 @@ useEffect(() => {
 
   return (
     <div className="component">
-      
-      <div className="text-white flex justify-center	">
+      <div className="text-white flex justify-center">
         <h3 className="title">{props.title}</h3>
       </div>
-      <div className=" text-white">
+      <div className="text-white">
         <div className="time flex justify-center">
-          <p>
-            {currTime.min}:{currTime.sec}
-          </p>
-          <p>
-            {time.min}:{time.sec}
-          </p>
+          <p>{time}</p>
         </div>
         <div className="flex justify-center">
-        <input
-          type="range"
-          min="0"
-          max={duration / 1000}
-          default="0"
-          value={seconds}
-          className="timeline"
-          onChange={(e) => {
-            sound.seek([e.target.value]);
-          }}
-        /></div>
+          <input
+            type="range"
+            min="0"
+            max={duration / 1000}
+            value={seconds}
+            className="timeline"
+            onChange={(e) => {
+              sound.seek(e.target.value);
+            }}
+          />
+        </div>
       </div>
       <div className="flex justify-center">
         <button className="playButton">
