@@ -7,7 +7,7 @@ import LoginForm from "./components/login page/LoginForm";
 import RegisterForm from "./components/login page/RegisterForm";
 import Podcast from "./components/audio-player/Podcast/podcast";
 import VideoPlayer from "./components/video-player/VideoPage";
-import MusicPage from "./components/audio-player/MusicPage";
+import MusicPage from "./components/audio-player/MusicPage/MusicPage";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -18,16 +18,17 @@ function App() {
         <div className="logo-home-left flex">
           <img
             src="https://img.freepik.com/premium-photo/cool-neon-party-bear-sunglasses-generative-ai_108146-4134.jpg"
-            title="Logo"
+            title="nagir rosh eeee"
             alt=""
             className="gay-grizzly-img rounded-full box-border h-16 w-16"
           />
           <div className="nav-text-left mt-3 ">
             <Link
-              className="nav-links-home bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 rounded-md"
+              className="nav-links-home text-5xl font-extrabold "
               to="/"
-            >
-              GayGrizzly
+            ><span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 text-3xl">
+                GayGrizzly
+              </span>
             </Link>
           </div>
         </div>

@@ -74,26 +74,26 @@ export default function Player(props) {
         </div>
       </div>
       <div className="flex justify-center">
-        <button className="playButton">
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+        <button className="playButton text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-2xl px-3 py-3 text-center mr-2 mb-22 ">
+          <IconContext.Provider value={{}}>
             <BiSkipPrevious />
           </IconContext.Provider>
         </button>
         {!isPlaying ? (
-          <button className="playButton" onClick={playingButton}>
-            <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+          <button className="playButton text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-2xl px-3 py-3 text-center mr-2 mb-22 " onClick={playingButton}>
+            <IconContext.Provider value={{}}>
               <AiFillPlayCircle />
             </IconContext.Provider>
           </button>
         ) : (
-          <button className="playButton" onClick={playingButton}>
-            <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+          <button className="playButton text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-2xl px-3 py-3 text-center mr-2 mb-22  " onClick={playingButton}>
+            <IconContext.Provider value={{}}>
               <AiFillPauseCircle />
             </IconContext.Provider>
           </button>
         )}
-        <button className="playButton">
-          <IconContext.Provider value={{ size: "3em", color: "#27AE60" }}>
+        <button className="playButton text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-full text-2xl px-3 py-3 text-center mr-2 mb-22  ">
+          <IconContext.Provider value={{}}>
             <BiSkipNext />
           </IconContext.Provider>
         </button>
